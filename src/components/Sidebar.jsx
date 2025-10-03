@@ -1,13 +1,6 @@
 import React, { useState } from "react";
 import { useDashboardStore } from "../store/useDashboard";
 
-/**
- * Sidebar component
- * - shows categories from the zustand store
- * - allows add / rename / delete
- * - calls setActiveCat(id|null) passed from App
- */
-
 export default function Sidebar({ activeCat, setActiveCat }) {
   const categories = useDashboardStore((s) => s.categories);
   const addCategory = useDashboardStore((s) => s.addCategory);
@@ -44,7 +37,6 @@ export default function Sidebar({ activeCat, setActiveCat }) {
     );
     if (!ok) return;
     removeCategory(cat.id);
-    // if deleted category was active, clear active
     if (activeCat === cat.id) setActiveCat(null);
   }
 
@@ -75,7 +67,9 @@ export default function Sidebar({ activeCat, setActiveCat }) {
             onClick={() => setActiveCat(null)}
           >
             <span className="cat-name">All Categories</span>
-            <span className="cat-count">{categories.reduce((s, c) => s + c.widgets.length, 0)}</span>
+            <span className="cat-count">
+              {categories.reduce((s, c) => s + c.widgets.length, 0)}
+            </span>
           </li>
 
           {categories.map((cat) => (
@@ -95,15 +89,42 @@ export default function Sidebar({ activeCat, setActiveCat }) {
                       className="rename-input"
                       value={editValue}
                       onChange={(e) => setEditValue(e.target.value)}
-                      onKeyDown={(e) => e.key === "Enter" && confirmRename(cat.id)}
+                      onKeyDown={(e) =>
+                        e.key === "Enter" && confirmRename(cat.id)
+                      }
                     />
-                    <button className="btn-ghost" onClick={() => confirmRename(cat.id)}>Save</button>
-                    <button className="btn-ghost" onClick={() => { setEditing(null); setEditValue(""); }}>Cancel</button>
+                    <button
+                      className="btn-ghost"
+                      onClick={() => confirmRename(cat.id)}
+                    >
+                      Save
+                    </button>
+                    <button
+                      className="btn-ghost"
+                      onClick={() => {
+                        setEditing(null);
+                        setEditValue("");
+                      }}
+                    >
+                      Cancel
+                    </button>
                   </>
                 ) : (
                   <>
-                    <button className="icon-btn" title="Rename" onClick={() => startRename(cat)}>✎</button>
-                    <button className="icon-btn" title="Delete" onClick={() => handleDelete(cat)}>🗑️</button>
+                    <button
+                      className="icon-btn"
+                      title="Rename"
+                      onClick={() => startRename(cat)}
+                    >
+                      ✎
+                    </button>
+                    <button
+                      className="icon-btn"
+                      title="Delete"
+                      onClick={() => handleDelete(cat)}
+                    >
+                      🗑️
+                    </button>
                   </>
                 )}
               </div>
@@ -113,7 +134,9 @@ export default function Sidebar({ activeCat, setActiveCat }) {
       </nav>
 
       <div className="sidebar-bottom">
-        <small style={{ color: "#6b7280" }}>Tip: Click a category to filter dashboard</small>
+        <small style={{ color: "#6b7280" }}>
+          Tip: Click a category to filter dashboard
+        </small>
       </div>
     </aside>
   );

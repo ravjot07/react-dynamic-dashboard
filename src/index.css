@@ -1,4 +1,3 @@
-/* Reset + basic styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -217,7 +216,7 @@ aside ul li:hover {
 
 .sidebar-title {
   font-weight: 700;
-  font-size: 15px;               /* slightly bigger */
+  font-size: 15px;              
   margin-bottom: 16px;
   color: #111827;
 }

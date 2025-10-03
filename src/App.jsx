@@ -1,35 +1,27 @@
 import React, { useState } from "react";
-import Dashboard from "./components/Dashboard";
 import Sidebar from "./components/Sidebar";
+import Dashboard from "./components/Dashboard";
+import "./index.css";
 
 export default function App() {
   const [activeCat, setActiveCat] = useState(null);
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh" }}>
+    <div className="app-shell">
       <Sidebar activeCat={activeCat} setActiveCat={setActiveCat} />
 
-      <div style={{ flex: 1 }}>
-        <header
-          style={{
-            background: "#fff",
-            padding: "12px 20px",
-            borderBottom: "1px solid #e5e7eb",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <h1 style={{ fontWeight: "bold" }}>CNAPP Dashboard</h1>
-          <div style={{ display: "flex", gap: "10px" }}>
+      <div className="main-area">
+        <header className="main-header">
+          <div className="logo">CNAPP</div>
+
+          <div className="header-actions">
+            <input
+              className="header-search"
+              placeholder="Search widgets..."
+              onFocus={() => {}}
+            />
             <button
-              style={{
-                background: "#4f46e5",
-                color: "#fff",
-                padding: "6px 12px",
-                borderRadius: "6px",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="btn-primary"
               onClick={() =>
                 window.dispatchEvent(new CustomEvent("open-add-widget"))
               }
