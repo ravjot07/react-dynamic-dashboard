@@ -1,0 +1,399 @@
+/* Reset + basic styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #f5f7fb;
+  color: #111827;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  font-size: 20px;
+  font-weight: bold;
+  color: #1f2937;
+}
+
+header input {
+  padding: 6px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  width: 250px;
+}
+
+/* Category section */
+.category {
+  margin-bottom: 30px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.category-header h3 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.category-header button {
+  padding: 6px 12px;
+  font-size: 13px;
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.category-header button:hover {
+  background: #4338ca;
+}
+
+/* Widgets grid */
+.widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+/* Widget card */
+.widget {
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
+  min-height: 100px;
+}
+
+.widget h4 {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.widget p {
+  font-size: 13px;
+  color: #555;
+}
+
+.widget button.remove {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  color: #888;
+  cursor: pointer;
+}
+
+.widget button.remove:hover {
+  color: red;
+}
+
+.placeholder {
+  border: 2px dashed #d1d5db;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #9ca3af;
+  font-size: 14px;
+  min-height: 100px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1000;
+}
+
+.modal {
+  width: 350px;
+  height: 100%;
+  background: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.modal h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal label {
+  display: block;
+  font-size: 12px;
+  margin-bottom: 4px;
+  color: #555;
+}
+
+.modal input,
+.modal textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.modal-actions button {
+  padding: 6px 12px;
+  font-size: 13px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions .cancel {
+  background: #f3f4f6;
+}
+
+.modal-actions .confirm {
+  background: #4f46e5;
+  color: #fff;
+}
+
+.widget:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+aside ul li:hover {
+  background: #f3f4f6;
+}
+
+/* Layout */
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: #f5f7fb;
+}
+.sidebar {
+  width: 300px;                 /* increased from 240px */
+  background: #ffffff;
+  border-right: 1px solid #e6e6e6;
+  padding: 24px 20px;            /* more breathing room */
+  box-shadow: 0 2px 8px rgba(15,15,15,0.04);
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.sidebar-title {
+  font-weight: 700;
+  font-size: 15px;               /* slightly bigger */
+  margin-bottom: 16px;
+  color: #111827;
+}
+
+.sidebar-add {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.sidebar-input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background: #4f46e5;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btn-primary.small {
+  padding: 6px 8px;
+  font-size: 13px;
+}
+
+/* nav */
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 8px;
+}
+.cat-item:hover {
+  background: #f8fafc;
+}
+.cat-item.active {
+  background: #eef2ff;
+  box-shadow: inset 0 0 0 1px rgba(79, 70, 229, 0.06);
+}
+.cat-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+}
+.cat-name {
+  font-size: 13px;
+  color: #111827;
+}
+.cat-count {
+  font-size: 12px;
+  color: #6b7280;
+}
+
+/* actions */
+.cat-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.icon-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 4px;
+  border-radius: 4px;
+}
+.icon-btn:hover {
+  background: #f3f4f6;
+}
+
+/* main area */
+.main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 18px;
+  background: #fff;
+  border-bottom: 1px solid #e6e6e6;
+}
+.logo {
+  font-weight: 700;
+  font-size: 16px;
+}
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.header-search {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  width: 340px;
+}
+
+/* dashboard containers */
+.container {
+  padding: 18px;
+}
+.top-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.widgets-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 14px;
+}
+
+/* widget card */
+.widget {
+  background: #fff;
+  padding: 14px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(15, 15, 15, 0.04);
+  position: relative;
+  min-height: 110px;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.widget:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 24px rgba(15, 15, 15, 0.08);
+}
+.widget h4 {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+.widget p {
+  color: #6b7280;
+  font-size: 13px;
+}
+
+/* remove button */
+.widget .remove {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  border: none;
+  background: transparent;
+  color: #9ca3af;
+  cursor: pointer;
+}
+.widget .remove:hover {
+  color: #ef4444;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .sidebar {
+    display: none;
+  } /* hide sidebar on small screens */
+  .header-search {
+    width: 160px;
+  }
+}
